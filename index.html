@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Google Slides Iframe Generator</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <header>
+          <h1>Google Slides Iframe Generator</h1>
+          <p>
+            Tempel URL publik Google Slides Anda dalam format <code>pubembed</code>
+            lalu tekan "Generate" untuk melihat pratinjau iframe dan mengunduh file
+            HTML-nya.
+          </p>
+        </header>
+        <form id="generator-form" class="form" novalidate>
+          <label for="slide-url">URL Google Slides</label>
+          <input
+            id="slide-url"
+            name="slide-url"
+            type="url"
+            placeholder="https://docs.google.com/presentation/.../pubembed?start=false&loop=false&delayms=3000"
+            required
+          />
+          <p class="hint">
+            Pastikan menggunakan URL dari menu <strong>File → Publish to the web →
+            Embed</strong> sehingga berakhiran <code>/pubembed</code>.
+          </p>
+          <div class="actions">
+            <button type="submit">Generate</button>
+            <button type="button" id="download-btn" disabled>Download iframe</button>
+          </div>
+          <p id="error" role="alert" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="result" class="panel result" hidden>
+        <h2>Pratinjau</h2>
+        <div class="iframe-wrapper">
+          <iframe
+            id="preview-frame"
+            title="Google Slides preview"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h3>Kode iframe</h3>
+        <textarea id="iframe-code" readonly></textarea>
+      </section>
+    </main>
+
+    <script src="index.js" defer></script>
+  </body>
+</html>
